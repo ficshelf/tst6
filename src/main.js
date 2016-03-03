@@ -1,5 +1,11 @@
-import $ from 'jquery';
+//import $ from 'jquery';
 import * as hljs from 'highlight.js';
+
+function  getdata(v) {
+ console.log(v);
+}
+
+export { getdata };
 
 
 var ajax = {
@@ -33,25 +39,23 @@ var ajax = {
 
 ajax.load('http://localhost:3000/response.json', function(xhr) {
     let doc = xhr.responseText;
-    let head = xhr.responseHeader;
-    console.log(head);
-    /*
-    console.log(doc);
-    doc = doc.replace(/</g,"&lt;");
-    console.log(doc);
-    */
+    //let headers = XMLHttpRequest.getAllResponseHeaders(); 
+    let headers = xhr.getResponseHeader('Content-Type');
+    let status = xhr.status;
+    console.log(headers);
+    console.log(status);
     document.getElementById('container').innerHTML = doc;
-    $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
+    hljs.highlightBlock(document.getElementById('container'));
 });
 
 
 ajax.load('http://localhost:3000/response.xml', function(xhr) {
     let doc = xhr.responseText;
+    let headers = xhr.getResponseHeader('Content-Type');
+    let status = xhr.status;
+    console.log(headers);
+    console.log(status);
     doc = doc.replace(/</g,"&lt;");
     document.getElementById('container2').innerHTML = doc;
-    $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
+    hljs.highlightBlock(document.getElementById('container2'));
 });

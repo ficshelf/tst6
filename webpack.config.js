@@ -6,10 +6,13 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    libraryTarget: 'var',
+    library: 'Bundle'
   },
   devtool: 'inline-source-map',
   module: {
+    noParse: [/autoit\.js$/],
     loaders: [
       {
         test: path.join(__dirname, 'src'),

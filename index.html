@@ -6,6 +6,11 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
 </head>
 <body>
+  <p id="url-info"></p>
+  <select id="format" onChange="Bundle.getdata(this);">
+    <option value="json">JSON</option>
+    <option value="xml">XML</option>
+  </select>
   <pre>
     <code id="container">
       <!-- data goes here -->
@@ -16,7 +21,6 @@
       <!-- data goes here -->
     </code>
   </pre>
- 
-    <script src="build/bundle.js"></script>
 </body>
+    <script src="build/bundle.js"></script>
 </html>
