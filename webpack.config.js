@@ -8,7 +8,7 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js',
     libraryTarget: 'var',
-    library: 'Bundle'
+    library: 'B'
   },
   devtool: 'inline-source-map',
   module: {
