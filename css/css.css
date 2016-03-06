@@ -1,0 +1,54 @@
+pre, body, code, select  {font-family: 'Cousine'}
+html {
+  background-color: black;
+}
+
+.round {
+  padding: 1.25%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+
+select#format {width: 100%}
+
+@media (min-width: 640px) {
+  .longside {
+    display: inline-block;
+    position: relative;
+    margin: 1%;
+    float: left;
+    width: 60%;
+    min-height: 22px;
+    background-color: #f0f0f0;
+  }
+	.shortside {
+	    display: inline-block;
+	    position: relative;
+	    margin: 1%;
+	    float: left;
+	    width: 26%;
+	    min-height: 22px;
+	    background-color: #f0f0f0;
+	}
+}
+@media (max-width: 640px) {
+	* {font-size: 12.3px}
+	.longside {
+	    display: inline-block;
+	    position: relative;
+	    margin: 1%;
+	    width: 95%;
+	    min-height: 22px;
+	    background-color: #f0f0f0;
+	}
+	.shortside {
+	    display: inline-block;
+	    position: relative;
+	    margin: 1%;
+	    width: 95%;
+	    min-height: 22px;
+	    background-color: #f0f0f0;
+	}
+}

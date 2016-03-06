@@ -1,5 +1,5 @@
 {
-  "name": "xx2",
+  "name": "MartinSzylloTest",
   "version": "1.0.0",
   "description": "",
   "main": "ajax.js",
@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "highlight.js": "^9.2.0"
+    "chai": "^3.5.0",
+    "highlight.js": "^9.2.0",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
   },
   "devDependencies": {
     "babel-core": "^6.6.4",
