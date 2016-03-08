@@ -13,35 +13,46 @@ function displayData(req, xhr) {
 
 function  getData(v) {
 
-  //remove the very first option of the drop down AFTER the first AJAX call, to ensure we dont have an invalid one there anymore.
-  if (v.length == 3) v.remove(0);  
-
-  const that = v.options[v.selectedIndex].text;
+  // *******
+  // * 
+  // * UNCOMMENT to remove the very first option of the drop down AFTER the first AJAX call, to ensure we dont have an invalid one there anymore.
+  // * 
+  // *******
+  //
+  //
+  // if (v.length == 3) v.remove(0);  
   
-  let req = '';
+  const format = v.options[v.selectedIndex].text;
+  loadData(format);
+}
 
-  switch (that) {
+function loadData(format) { 
+  let req = '';
+  switch (format) {
     case 'JSON':
       req = '/response.json';
       ajax.load(req, function(xhr) {
 	displayData(req, xhr);
       });
+      return format;	
       break;
     case 'XML':
       req = '/response.xml';
       ajax.load(req, function(xhr) {
 	displayData(req, xhr);
       });
+      return format;	
       break;
     default:
-      throw('rogue select value');
+      throw('Rogue select value');
   }
 }
 
+export { loadData };
 export { getData };
 
 
-var ajax = {
+const ajax = {
    load : function load(url, callback) {
         var xhr;
 
@@ -69,3 +80,7 @@ var ajax = {
     }
 };
 
+export {ajax};
+
+//if (typeof window !== 'undefined') 
+window.onload = loadData(document.getElementById('format').options[document.getElementById('format').selectedIndex].text);

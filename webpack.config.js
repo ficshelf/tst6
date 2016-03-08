@@ -23,6 +23,14 @@ module.exports = {
         },
       },
       {
+        test: path.join(__dirname, 'test'),
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: 'es2015',
+        },
+      },
+      {
         test: /\.css$/,
         loaders: ["style", "css"]
       }
